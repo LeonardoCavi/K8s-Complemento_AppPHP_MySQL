@@ -1,0 +1,28 @@
+Material de Estudo do Bootcamp - Cloud DevOps
+Projeto original.: github.com/denilsonbonatti/k8s-database-exemplo
+
+==============> Database <============== 
+
+1. cd .\database\
+2. docker build . -t leonardocavi/meubanco:1.0
+3. docker push leonardocavi/meubanco:1.0
+4. kubectl.exe apply -f .\db-deployment.yml
+5. kubectl.exe get pods
+6. kubectl.exe get service
+
+==============> Backend <==============
+
+1. cd .\backend\
+2. docker build . -t leonardocavi/php:1.0
+3. docker push leonardocavi/php:1.0
+4. kubectl.exe apply -f .\php-deployment.yml
+5. kubectl.exe get pod
+6. kubectl.exe get service
+Complemento.: 	gcloud compute firewall-rules list
+		gcloud compute firewall-rules create backend --allow tcp:30005
+
+7. kubectl.exe get nodes -o wide
+	a. EXTERNAL-IP
+	b. Substituir no arquivo.: ./frontend/js.js.: url : "external-ip:30005/".
+
+=========================================		
